@@ -6,30 +6,35 @@ const materiasPorCiclo = {
             linkDrive: "https://drive.google.com/drive/folders/1tOP0F2FbdOiKmUbypnWoQS-eDQjcVRv0?usp=sharing",
             linkMeet: "https://meet.google.com/dsj-krgo-eeh",
             linkImagen: "psicologia_trabajo.png",
+            grupoTeorico: "GT01",
         },
         {
             nombreMateria: "Programación Orientada a Objetos",
             linkDrive: "https://drive.google.com/drive/folders/1h1VUtZEdCBjk2UtB_XyyYyD8A71FD0On?usp=drive_link",
             linkMeet: "https://meet.google.com/zyp-nbdy-xfj",
             linkImagen: "poo.png",
+            grupoTeorico: "GT01",
         },
         {
             nombreMateria: "Lógica y Diseño Digital",
             linkDrive: "https://drive.google.com/drive/folders/1Z0rbz_ARgiwnoL3hHnbVZ0LvCU6b4M82",
             linkMeet: "https://meet.google.com/yed-acga-gyp",
             linkImagen: "logica_disenio_digital.png",
+            grupoTeorico: "GT01",
         },
         {
             nombreMateria: "Introducción al Software Libre",
             linkDrive: "https://drive.google.com/drive/folders/1p1nBLwHIOtOGNJ2-4no6Wwq3VDhOS4Kd?usp=sharing",
             linkMeet: "https://meet.google.com/efr-bxzq-khk",
             linkImagen: "intro_software_libre.png",
+            grupoTeorico: "GT03",
         },
         {
             nombreMateria: "Administración de Bases de Datos",
             linkDrive: "https://drive.google.com/drive/folders/1Q1aHoJUXx8LIpiTm0Sd23iYw-lkb8Vmj?usp=drive_link",
             linkMeet: "https://meet.google.com/haa-bdko-eet",
             linkImagen: "admon_bases_datos.png",
+            grupoTeorico: "GT01",
         }
     ],
 }
@@ -54,7 +59,7 @@ function crearTarjetaMateria(materia) {
 
     const cardTitle = document.createElement("div");
     cardTitle.classList.add("card__title");
-    cardTitle.textContent = materia.nombreMateria;
+    cardTitle.innerHTML = `<p>${materia.nombreMateria}</p><p>${materia.grupoTeorico}</p>`;
 
     const cardContent = document.createElement("div");
     cardContent.classList.add("card__content");

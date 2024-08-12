@@ -119,6 +119,9 @@ i {
     gap: 10px;
     flex-direction: column;
 }
+.card__title p {
+    margin: 5px 0;
+}
 .card__button {
     text-decoration: none;
     background-color: #ffffff;
