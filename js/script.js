@@ -54,6 +54,23 @@ const materiasPorCiclo = {
             ],
         },
         {
+            nombreMateria: "Lógica y Diseño Digital",
+            linkDrive: "https://drive.google.com/drive/folders/16EmO6LYBm1q4xK_QHYJVvdf5nsAhU4A_",
+            linkMeet: "https://meet.google.com/gng-wutz-dxd",
+            linkImagen: "logica_disenio_digital.png",
+            grupoTeorico: "gt03",
+            codigoMateria: "ldd",
+            carnets: [
+                'af97011', 'ac12066', 'ab23007', 'br23021', 'cm23137', 'cb11002', 'cz23002',
+                'dp21008', 'dg22023', 'dd23010', 'ff21003', 'ff23004', 'gb22003', 'gc23100',
+                'gg18092', 'gg16061', 'hp13008', 'hp23005', 'hq22004', 'ia22001', 'jc21002',
+                'lr20029', 'lr22016', 'mv23006', 'mg23117', 'mr22142', 'mm21098', 'ms19059',
+                'mm22090', 'nm23016', 'pf23019', 'ph23011', 'pt92002', 'pg22040', 'pa23013',
+                'qc23006', 'rc23104', 'rj23001', 'rs13036', 'rp23005', 'rf23006', 'rr23027',
+                'sb14009', 'sc19013', 'sh22014', 'um22006', 'vh15010', 'vr22001', 'vl16008'
+            ],
+        },
+        {
             nombreMateria: "Introducción al Software Libre",
             linkDrive: "https://drive.google.com/drive/folders/1p1nBLwHIOtOGNJ2-4no6Wwq3VDhOS4Kd?usp=sharing",
             linkMeet: "https://meet.google.com/efr-bxzq-khk",
@@ -70,6 +87,21 @@ const materiasPorCiclo = {
             ],
         },
         {
+            nombreMateria: "Introducción al Software Libre",
+            linkDrive: "https://drive.google.com/drive/folders/1N_ES6LUNp37RHiynIoGN7BSPBLcGvgXb?usp=sharing",
+            linkMeet: "https://meet.google.com/wco-behc-bbn",
+            linkImagen: "intro_software_libre.png",
+            grupoTeorico: "gt02",
+            codigoMateria: "isl",
+            carnets: [
+                'aj23001', 'av23037', 'aj22005', 'br23021', 'cz23002', 'cg19057', 'ff23004',
+                'gg23009', 'gm22106', 'gc23100', 'ha23040', 'lr22016', 'mp23069', 'md23005',
+                'mt06017', 'mr22142', 'ms19059', 'mm19240', 'mp23093', 'nm23016', 'pf23019',
+                'pt92002', 'pc12028', 'pa23013', 'qc23006', 'rc23104', 'rl22020', 'rf23006',
+                'tz23003', 've20008', 'vl23003', 'vh22014', 'zc99001'
+            ],
+        },
+        {
             nombreMateria: "Administración de Bases de Datos",
             linkDrive: "https://drive.google.com/drive/folders/1Q1aHoJUXx8LIpiTm0Sd23iYw-lkb8Vmj?usp=drive_link",
             linkMeet: "https://meet.google.com/haa-bdko-eet",
@@ -83,10 +115,26 @@ const materiasPorCiclo = {
                 'rh16042', 'rh23003', 'sg23001', 'sr23008', 'sr23002', 'sf10020', 'vt21004',
                 'zc99001'
             ],
-        }
+        },
+        {
+            nombreMateria: "Administración de Bases de Datos",
+            linkDrive: "https://drive.google.com/drive/folders/1ucWHqqZJx4I37Bpp8byCZHLS2i6A1Aug?usp=sharing",
+            linkMeet: "https://meet.google.com/bgt-muxk-ejw",
+            linkImagen: "admon_bases_datos.png",
+            grupoTeorico: "gt03",
+            codigoMateria: "abd",
+            carnets: [
+                'ac12066', 'ab23007', 'ba22004', 'br23021', 'bl23018', 'cm23137', 'cg23016',
+                'cz23002', 'dp21008', 'dg22023', 'dm23004', 'fc16004', 'hp23005', 'hq22004',
+                'ia22001', 'la17014', 'lr20029', 'mg23117', 'mr22142', 'mg16068', 'mc23015',
+                'mc23152', 'mc22069', 'mm22090', 'nm23016', 'pl23022', 'pf23019', 'ph23011',
+                'pc12028', 'pg22040', 'qc23006', 'rc23104', 'rj23001', 'rs13036', 'rp23005',
+                'rg20063', 'rf23006', 'rr23027', 'sb14009', 've20008', 'vm19071', 'vl23003'
+            ],
+        },
     ],
 }
-ciclo = 4;
+const ciclo = 4;
 
 //Controles HTML
 const cicloSelect = document.getElementById("ciclo_actual");
@@ -141,26 +189,21 @@ function crearTarjetaMateria(materia) {
 }
 
 
-// Ciclo por defecto al cargar la página: 4
-/*cicloSelect.value = 4;
-cicloSelect.dispatchEvent(new Event("change"));*/
-
 // Buscar carnet en la lista de carnets de las materias, y mostrar todas las materias a las que tiene acceso
 formularioCarnet.addEventListener("submit", (event) => {
     event.preventDefault();
     const carnet = carnetInput.value.toLowerCase();
     const cicloSeleccionado = selectCiclo.value;
     encabezado.innerText = `Materias del ciclo ${cicloSeleccionado}`;
-    //console.log(cicloSeleccionado);
     contenedorMaterias.innerHTML = "";
-    //console.log(carnet);
 
-    //for (const ciclo in materiasPorCiclo) {
-        // console.log(`'${carnet}'`);
+    // Validar que haya materias en el ciclo seleccionado
+
+    if (materiasPorCiclo[cicloSeleccionado]) {
+
         for (const materia of materiasPorCiclo[cicloSeleccionado]) {
             console.log(materia);
             if (materia.carnets.includes(carnet)) {
-                //console.log('si');
                 const card = crearTarjetaMateria(materia);
                 contenedorMaterias.appendChild(card);
                 contenedorFormulario.classList.add("hidden");
@@ -169,7 +212,11 @@ formularioCarnet.addEventListener("submit", (event) => {
                 console.log(typeof carnet);
             }
         }
-    //}
+
+    } else {
+        console.log('no hay materias');
+        alert("No hay materias en el ciclo seleccionado");
+    }
 });
 
 

@@ -68,11 +68,11 @@ i {
 
 .ids-select {
     border: 1px solid var(--primary-color);
-    padding: 5px 25px;
+    padding: 15px 25px;
     font-size: 18px;
     border-radius: 5px;
     margin: 10px 0;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2) inset;
 }
 
 .card {
@@ -129,7 +129,7 @@ i {
 .card__button {
     text-decoration: none;
     background-color: #ffffff;
-    padding: 5px 20px;
+    padding: 15px 20px;
     color: var(--dark-color);
     border-radius: 5px;
     transition: all 0.3s;
@@ -160,20 +160,21 @@ i {
 }
 .ids-input {
     border: 1px solid var(--primary-color);
-    padding: 8px 20px;
+    padding: 15px 20px;
     font-size: 18px;
     border-radius: 5px;
     margin: 10px 0;
-    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2) inset;
 }
 .form-carnet {
     display: flex;
     flex-direction: column;
     gap: 0px;
-    padding: 20px;
-    background: linear-gradient(0deg, rgba(150,0,0,0.7315301120448179) 0%, rgba(255,255,255,1) 100%);
+    padding: 45px;
+    background-color: #ffffff;
+    /* background: linear-gradient(0deg, rgba(150,0,0,0.7315301120448179) 0%, rgba(255,255,255,1) 100%); */
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 .ids-form-logo {
     margin: 10px 0;
@@ -182,7 +183,7 @@ i {
     display: none !important;
 }
 .form-actions {
-    margin-top: 10px;
+    margin-top: 30px;
 }
 
 /* diseño responsivo */
